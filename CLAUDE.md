@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Build / typecheck the whole workspace
 cargo check --all-targets --all-features
 
-# Run all tests
+# Run all tests (needs NO Postgres — every test is a unit test: config resolution, strategy stubs, query adapter, HTTP client)
 cargo test --workspace --all-targets
 
 # Run a single test by name (substring match)
@@ -87,3 +87,7 @@ The codebase deliberately applies a small set of named patterns; preserve them w
 ## Deployment
 
 The multi-stage [Dockerfile](Dockerfile) cross-compiles to musl (static, distroless `nonroot` images) producing `vym-fyi-crud`, `vym-fyi-redirect`, and `healthcheck` binaries. Helm charts for both services live under [charts/](charts/). Local dev stack (Postgres, both services, Prometheus, Grafana dashboards) is [compose.yaml](compose.yaml) + [.docker/](.docker/).
+
+## Linked instruction file
+
+`AGENTS.md` is a symlink to this file — one source of truth shared by Claude Code and OpenCode. Edit this file only; never replace `AGENTS.md` with a regular file.
