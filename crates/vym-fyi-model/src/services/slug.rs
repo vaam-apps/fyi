@@ -1,4 +1,4 @@
-use rand::Rng;
+use rand::RngExt;
 
 /// Generate a random, URL-safe slug with at least `min_len` characters.
 ///
