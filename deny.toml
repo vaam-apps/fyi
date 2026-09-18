@@ -13,7 +13,31 @@ allow = [
     "CDLA-Permissive-2.0"
 ]
 
-[advisories]
-ignore = [
-    "RUSTSEC-2023-0071" # https://rustsec.org/advisories/RUSTSEC-2023-0071
-]
+# No [advisories] ignore entries as of 2026-09-18.
+#
+# RUSTSEC-2023-0071 (Marvin Attack, `rsa`) used to be ignored here, but the
+# ignore had gone stale: `rsa` is not a reachable dependency of this
+# workspace at all. It appears in Cargo.lock only because `sqlx-mysql`
+# (an optional dependency of `sqlx` behind its `mysql` feature) depends on
+# it, and this workspace's `sqlx = { ..., default-features = false,
+# features = ["runtime-tokio-rustls", "postgres", "macros", "migrate",
+# "uuid", "chrono"] }` never enables `mysql`. Verified two ways:
+#   `cargo tree -i rsa --all-features` -> "nothing to print"
+#   `cargo tree -e features -i rsa --all-features` -> "nothing to print"
+# Cargo.lock still lists the package (the newer resolver keeps every
+# package that *could* be reached under some feature combination in the
+# lockfile's graph metadata) but it is never compiled into any target.
+# `cargo deny check advisories` already agrees: with no ignore entry at
+# all, RUSTSEC-2023-0071 does not appear in its output, because no crate
+# in the resolved graph matches the advisory's `rsa` criteria.
+#
+# If a future dependency change (e.g. enabling `sqlx`'s `mysql` feature,
+# or a new dependency pulling in `rsa` directly) makes `rsa` reachable
+# again, `cargo deny check advisories` will surface RUSTSEC-2023-0071 as a
+# real error on its own — there is nothing to pre-emptively ignore. If
+# that happens, write a fresh reachability argument at that point (does
+# the new caller ever *decrypt* with `rsa`, the operation the Marvin
+# Attack's timing side-channel actually needs? sign/verify-only call
+# sites are not exploitable the same way — see the sibling `vsms` repo's
+# `deny.toml` for a worked example of that argument) rather than
+# reinstating this ignore blind.
