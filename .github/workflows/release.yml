@@ -87,10 +87,27 @@ jobs:
         with:
           path: .
 
-      - name: Create Release and Upload Assets
-        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64
+      # `gh release upload` rather than a third-party action: zizmor's
+      # `superfluous-actions` audit flags the action as functionality the
+      # runner already ships, and using the CLI settles the one assumption the
+      # step above rests on — `gh release upload` attaches to a release that
+      # already exists, which is exactly the contract needed now that
+      # release-please creates it. `--clobber` so a re-run of this job
+      # replaces assets instead of failing on a name collision.
+      - name: Upload the built assets to the release
         if: startsWith(github.ref, 'refs/tags/v')
-        with:
-          files: '**'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+          # download-artifact unpacks each artifact into its own directory, so
+          # collect real files rather than globbing a flat layout that is not
+          # what is actually on disk.
+          mapfile -t assets < <(find . -type f -not -path './.git/*' | sort)
+          if [ "${#assets[@]}" -eq 0 ]; then
+            echo "no artifacts were downloaded — nothing to attach" >&2
+            exit 1
+          fi
+          printf '   %s\n' "${assets[@]}"
+          gh release upload "$TAG" "${assets[@]}" --clobber
