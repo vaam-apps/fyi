@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/vaam-apps/fyi/compare/v1.0.1...v1.0.2) (2026-09-19)
+
+
+### Bug Fixes
+
+* **ci:** scan the default branch on push, not just pull_request ([#157](https://github.com/vaam-apps/fyi/issues/157)) ([b93defd](https://github.com/vaam-apps/fyi/commit/b93defd65dededdb12abe04063f887f6bd844564))
+
 ## [1.0.1](https://github.com/vaam-apps/fyi/compare/v1.0.0...v1.0.1) (2026-09-19)
 
 
