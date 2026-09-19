@@ -19,3 +19,7 @@ test.yaml
 
 .trivycache
 spool
+
+# ci/commit-message-parse is a standalone npm project (release-please
+# adoption); its own node_modules must never be committed.
+node_modules/
