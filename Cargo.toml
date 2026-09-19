@@ -55,7 +55,7 @@ incremental = false
 strip = true
 
 [workspace.package]
-version = "1.0.0" # x-release-please-version
+version = "1.0.1" # x-release-please-version
 edition = "2024"
 license = "MIT"
 publish = false
