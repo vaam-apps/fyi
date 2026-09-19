@@ -72,17 +72,15 @@ jobs:
           VERSION="${GITHUB_REF#refs/tags/}"
           echo "VERSION=${VERSION}" >> "$GITHUB_OUTPUT"
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@0cb9c9b65d5d1901c1f53e5e66eaf4afd303e70e
-        if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.get_version.outputs.VERSION }}
-          release_name: Release ${{ steps.get_version.outputs.VERSION }}
-          draft: false
-          prerelease: false
+      # No `actions/create-release` step here. release-please owns the tag and
+      # the GitHub Release now; the upload step below is upsert-capable and
+      # attaches the built binaries to the release that already exists.
+      #
+      # Removing it fixes three things at once: `actions/create-release` is an
+      # archived repository (zizmor `archived-uses`); a second creator would
+      # collide with release-please's own; and the alternative - keeping
+      # `skip-github-release: true` to avoid that collision - meant no tag was
+      # ever created, so this workflow's own `tags: ['v*']` trigger never fired.
 
       - name: Download Artifacts
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
