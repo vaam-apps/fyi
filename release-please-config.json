@@ -9,7 +9,6 @@
       "include-v-in-tag": true,
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": false,
-      "skip-github-release": true,
       "changelog-sections": [
         {
           "type": "feat",
