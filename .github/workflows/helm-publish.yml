@@ -168,7 +168,7 @@ jobs:
           # to git.
           persist-credentials: false
       - uses: azure/setup-helm@9bc31f4ebc9c6b171d7bfbaa5d006ae7abdb4310 # v5.0.1
-      - uses: sigstore/cosign-installer@7e8b541eb2e61bf99390e1afd4be13a184e9ebc5 # v4.1.2
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
 
       # BOTH fields are read, but only `appVersion` is compared to the tag.
       # `appVersion` carries `# x-release-please-version` (release-please
