@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.2](https://github.com/vaam-apps/fyi/compare/v1.0.1...v1.0.2) (2026-09-21)
+
+
+### Bug Fixes
+
+* **charts:** point both charts at the vaam-apps image packages ([#160](https://github.com/vaam-apps/fyi/issues/160)) ([42509ee](https://github.com/vaam-apps/fyi/commit/42509eecba01e28189a78ee402f06970cf45627b))
+* **ci:** publish Helm charts to GHCR via OCI ([#159](https://github.com/vaam-apps/fyi/issues/159)) ([1ad9bd7](https://github.com/vaam-apps/fyi/commit/1ad9bd775a3ec11776f6489949b504825d880373))
+* **ci:** scan the default branch on push, not just pull_request ([#157](https://github.com/vaam-apps/fyi/issues/157)) ([b93defd](https://github.com/vaam-apps/fyi/commit/b93defd65dededdb12abe04063f887f6bd844564))
+
 ## [1.0.1](https://github.com/vaam-apps/fyi/compare/v1.0.0...v1.0.1) (2026-09-19)
 
 
