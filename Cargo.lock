@@ -3012,7 +3012,7 @@ checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
 name = "vym-fyi-client"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "clap",
  "env_logger",
@@ -3025,11 +3025,11 @@ dependencies = [
 
 [[package]]
 name = "vym-fyi-healthcheck"
-version = "1.0.2"
+version = "1.0.3"
 
 [[package]]
 name = "vym-fyi-model"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "axum",
  "axum-prometheus",
@@ -3053,7 +3053,7 @@ dependencies = [
 
 [[package]]
 name = "vym-fyi-node"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "napi",
  "napi-build",
@@ -3065,7 +3065,7 @@ dependencies = [
 
 [[package]]
 name = "vym-fyi-server-crud"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "async-trait",
  "axum",
@@ -3081,7 +3081,7 @@ dependencies = [
 
 [[package]]
 name = "vym-fyi-server-redirect"
-version = "1.0.2"
+version = "1.0.3"
 dependencies = [
  "axum",
  "metrics",
