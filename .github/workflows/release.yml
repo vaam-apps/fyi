@@ -99,6 +99,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAG: ${{ github.ref_name }}
+          # This job never checks the repository out — it only downloads
+          # artifacts — so `gh` has no git remote to infer the repository
+          # from and dies before it reaches the API:
+          #
+          #     failed to run git: fatal: not a git repository
+          #
+          # GH_REPO supplies it directly. An `actions/checkout` would also
+          # work and would clone the whole repository to recover a value
+          # already present in the environment.
+          GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
           # download-artifact unpacks each artifact into its own directory, so
