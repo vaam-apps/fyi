@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.0.3](https://github.com/vaam-apps/fyi/compare/v1.0.2...v1.0.3) (2026-09-21)
+
+
+### Bug Fixes
+
+* **release:** give `gh release upload` a repository to attach to ([#161](https://github.com/vaam-apps/fyi/issues/161)) ([1b384ad](https://github.com/vaam-apps/fyi/commit/1b384ad04f85a1568a1a9c8c060167cdabf08793))
+
+
+### Chores
+
+* **ci:** bump the vaam-apps/.github workflow pin to pick up the lint fix ([#163](https://github.com/vaam-apps/fyi/issues/163)) ([3e85717](https://github.com/vaam-apps/fyi/commit/3e85717ee677aaddbafb9d08118bb5313f2caeb8))
+
 ## [1.0.2](https://github.com/vaam-apps/fyi/compare/v1.0.1...v1.0.2) (2026-09-21)
 
 
