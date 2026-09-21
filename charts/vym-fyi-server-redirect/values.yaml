@@ -30,7 +30,19 @@ redirect:
       containers:
         app:
           image:
-            repository: ghcr.io/vymalo/fyi-redirect
+            # `vymalo` until 2026-09-20. The org renamed twice (vymalo ->
+            # vaam-store -> vaam-apps) and `build.yml` follows it
+            # automatically because it derives the destination from
+            # `github.repository`; this hardcoded line did not.
+            #
+            # It was not a broken install, which is what made it easy to
+            # miss: `ghcr.io/vymalo/fyi-redirect:latest` still resolves (200) —
+            # but it is a SEPARATE, frozen package, last written before the
+            # rename, with a different digest from the live one. A default
+            # install therefore succeeded while silently running
+            # pre-rename software. #152 stopped the pushes to that
+            # namespace; this is the reader that was left pointing at it.
+            repository: ghcr.io/vaam-apps/fyi-redirect
             tag: '{{ .Values.global.version }}'
             pullPolicy: IfNotPresent
 
