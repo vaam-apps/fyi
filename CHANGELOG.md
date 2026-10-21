@@ -1,5 +1,23 @@
 # Changelog
 
+## [1.0.3](https://github.com/vaam-apps/fyi/compare/v1.0.2...v1.0.3) (2026-10-21)
+
+
+### Bug Fixes
+
+* **deps:** bump webpki-roots, rustls and rustls-webpki for RustSec advisories ([#188](https://github.com/vaam-apps/fyi/issues/188)) ([09765ee](https://github.com/vaam-apps/fyi/commit/09765eeffce972c003e4b2f47933024616993230))
+* **release:** give `gh release upload` a repository to attach to ([#161](https://github.com/vaam-apps/fyi/issues/161)) ([1b384ad](https://github.com/vaam-apps/fyi/commit/1b384ad04f85a1568a1a9c8c060167cdabf08793))
+
+
+### Documentation
+
+* move the docs site from MkDocs to VitePress with the vaam-apps MD3 theme ([#187](https://github.com/vaam-apps/fyi/issues/187)) ([23f4534](https://github.com/vaam-apps/fyi/commit/23f45343ed2a489fbb6e1bcdc8fc0dd9cc81f1dd))
+
+
+### Chores
+
+* **ci:** bump the vaam-apps/.github workflow pin to pick up the lint fix ([#163](https://github.com/vaam-apps/fyi/issues/163)) ([3e85717](https://github.com/vaam-apps/fyi/commit/3e85717ee677aaddbafb9d08118bb5313f2caeb8))
+
 ## [1.0.2](https://github.com/vaam-apps/fyi/compare/v1.0.1...v1.0.2) (2026-09-21)
 
 
