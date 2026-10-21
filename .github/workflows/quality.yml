@@ -82,7 +82,7 @@ jobs:
       security-events: write
       contents: read
       actions: read
-    uses: vaam-apps/.github/.github/workflows/sast.yml@01d7a15ee827152447d3b3b7031fdc8a02d98dd7 # vaam-apps/.github main
+    uses: vaam-apps/.github/.github/workflows/sast.yml@613f114e54197f20f70676d1d6334f71c98362aa # vaam-apps/.github main
     with:
       codeql-languages: ${{ needs.changes.outputs.code == 'true' && '["rust","python","actions"]' || '[]' }}
       docs-globs: ${{ needs.changes.outputs.docs == 'true' && '**/*.md' || '' }}
