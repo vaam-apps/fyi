@@ -118,7 +118,7 @@ jobs:
     permissions:
       security-events: write
       contents: read
-    uses: vaam-apps/.github/.github/workflows/trivy.yml@01d7a15ee827152447d3b3b7031fdc8a02d98dd7 # vaam-apps/.github main
+    uses: vaam-apps/.github/.github/workflows/trivy.yml@613f114e54197f20f70676d1d6334f71c98362aa # vaam-apps/.github main
     with:
       scanners: "vuln,secret,misconfig"
       upload-sarif: true
