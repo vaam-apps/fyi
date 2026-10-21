@@ -11,7 +11,9 @@ target
 *.csv
 *.crl
 
-site/
+# The VitePress docs site's build output and cache (docs/.vitepress).
+docs/.vitepress/dist
+docs/.vitepress/cache
 
 tmp
 test.yaml
